@@ -1,16 +1,17 @@
 <nav class="navbar">
   <div class="container">
     <div class="logo">
-      <img src="../../../../assets/logor.png" alt="RentEaseLogo" routerLink="/home">
+      <img src="../../../../assets/logor.png" alt="RentEaseLogo" [routerLink]="isLoggedIn ? null : '/home'" [class.disabled]="isLoggedIn">
     </div>
     <div class="menu">
       <ul class="menu-list">
-        <li><a href="#">Nosotros</a></li>
-        <li><a href="#">Equipo</a></li>
+        <li *ngIf="!isLoggedIn"><a href="#">Nosotros</a></li>
+        <li *ngIf="!isLoggedIn"><a href="#">Equipo</a></li>
       </ul>
     </div>
     <div class="auth-buttons">
-      <a href="/log-rent" class="login-button">Login</a>
+      <a *ngIf="!isLoggedIn" href="/log-rent" class="login-button">Login</a>
+      <button *ngIf="isLoggedIn" (click)="logout()" class="logout-button">Cerrar Sesión</button>
     </div>
     <div class="hamburger" (click)="toggleMenu()">
       &#9776;
@@ -18,9 +19,10 @@
   </div>
   <div class="mobile-menu" *ngIf="menuOpen">
     <ul>
-      <li><a href="#">Nosotros</a></li>
-      <li><a href="#">Equipo</a></li>
-      <li><a href="/log-rent">Login</a></li>
+      <li *ngIf="!isLoggedIn"><a href="#">Nosotros</a></li>
+      <li *ngIf="!isLoggedIn"><a href="#">Equipo</a></li>
+      <li *ngIf="!isLoggedIn"><a href="/log-rent">Login</a></li>
+      <li *ngIf="isLoggedIn"><button (click)="logout()" class="logout-button">Cerrar Sesión</button></li>
     </ul>
   </div>
 </nav>

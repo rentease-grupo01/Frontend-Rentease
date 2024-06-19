@@ -1,0 +1,63 @@
+/* createcomunity.component.css */
+.container {
+  display: flex;
+  flex-direction: column;
+}
+
+.flex {
+  display: flex;
+}
+
+.w-full {
+  width: 100%;
+}
+
+.w-1/4 {
+  width: 25%;
+}
+
+.w-3/4 {
+  width: 75%;
+}
+
+.mb-4 {
+  margin-bottom: 16px;
+}
+
+.p-4 {
+  padding: 16px;
+}
+
+.border-r {
+  border-right: 1px solid #ccc;
+}
+
+.floating-box {
+  background-color: white;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+}
+
+.community-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+}
+
+.community-card {
+  flex: 1 1 calc(33% - 16px);
+  box-sizing: border-box;
+  margin-bottom: 16px;
+}
+
+@media (max-width: 768px) {
+  .community-card {
+    flex: 1 1 calc(50% - 16px);
+  }
+}
+
+@media (max-width: 480px) {
+  .community-card {
+    flex: 1 1 100%;
+  }
+}

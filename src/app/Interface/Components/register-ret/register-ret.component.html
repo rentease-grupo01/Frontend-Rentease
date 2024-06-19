@@ -42,11 +42,11 @@
             <label for="role" class="label dark:text-light">Rol:</label>
             <select id="role" formControlName="role" (change)="onRoleChange()" class="input dark:input-dark">
               <option value="">Seleccione un rol</option>
-              <option value="landlord">Arrendador</option>
-              <option value="tenant">Inquilino</option>
+              <option value="ARRENDADOR">ARRENDADOR</option>
+              <option value="INQUILINO">INQUILINO</option>
             </select>
           </div>
-          <div formGroupName="preferences" *ngIf="registerForm.get('role')?.value === 'tenant'">
+          <div formGroupName="preferences" *ngIf="registerForm.get('role')?.value === 'INQUILINO'">
             <h3 class="label dark:text-light">Preferencias de Alojamiento</h3>
             <div>
               <label for="price" class="label dark:text-light">Precio:</label>
