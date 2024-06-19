@@ -12,6 +12,13 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HttpClientModule } from '@angular/common/http';
 import { ArrendadorDashComponent } from './Interface/Components/arrendador-dash/arrendador-dash.component';
 import { InquilinoDashComponent } from './Interface/Components/inquilino-dash/inquilino-dash.component';
+import { CreateComunityComponent } from './Interface/Components/create-comunity/createcomunity.component';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatInputModule } from '@angular/material/input';
+import { MatButtonModule } from '@angular/material/button';
+import { MatTableModule } from '@angular/material/table';
+import { MatCardModule } from '@angular/material/card';
 
 
 @NgModule({
@@ -23,15 +30,23 @@ import { InquilinoDashComponent } from './Interface/Components/inquilino-dash/in
     LoginRentComponent,
     RegisterRetComponent,
     ArrendadorDashComponent,
-    InquilinoDashComponent
+    InquilinoDashComponent,
+    CreateComunityComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule,
     BrowserAnimationsModule,
     ReactiveFormsModule,
-    FormsModule,
-    HttpClientModule
+    HttpClientModule,
+    MatCardModule,
+    MatSnackBarModule,
+    MatFormFieldModule,
+    MatInputModule,
+    MatButtonModule,
+    MatTableModule,
+    AppRoutingModule,
+    FormsModule
+
   ],
   providers: [],
   bootstrap: [AppComponent]
