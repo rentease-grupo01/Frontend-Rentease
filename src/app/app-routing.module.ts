@@ -5,7 +5,8 @@ import { LoginRentComponent } from './Interface/Components/login-rent/login-rent
 import { RegisterRetComponent } from './Interface/Components/register-ret/register-ret.component';
 
 const routes: Routes = [
-  { path: 'home', component: LoginRentComponent },
+  { path: '', redirectTo: '/home', pathMatch: 'full'},
+  { path: 'home', component: LandingComponent },
   { path: 'log-rent', component: LoginRentComponent},
   { path: 'register-ret', component: RegisterRetComponent}
 ];

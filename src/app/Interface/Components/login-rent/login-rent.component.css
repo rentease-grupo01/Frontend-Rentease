@@ -5,11 +5,11 @@
   justify-content: center;
   padding: 2rem 1.5rem;
   margin: auto;
-  height: 50vh;
+  height: 70vh;
 }
 
 .form-container {
-  width: 100%;
+  width: 85%;
   max-width: 28rem;
   background-color: #FFFFFF;
   border-radius: 0.5rem;

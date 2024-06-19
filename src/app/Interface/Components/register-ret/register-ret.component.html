@@ -1,1 +1,72 @@
-<p>Hola mudno</p>
+<section class="bg-light dark:bg-dark">
+  <div class="container">
+    <div class="form-container dark:border-dark">
+      <div class="form-content">
+        <h1 class="title">Crear Cuenta</h1>
+        <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+          <div class="form-row">
+            <div class="form-group">
+              <label for="firstName" class="label dark:text-light">Nombre:</label>
+              <input type="text" id="firstName" formControlName="firstName" class="input dark:input-dark">
+            </div>
+            <div class="form-group">
+              <label for="lastName" class="label dark:text-light">Apellido:</label>
+              <input type="text" id="lastName" formControlName="lastName" class="input dark:input-dark">
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="form-group">
+              <label for="dni" class="label dark:text-light">DNI:</label>
+              <input type="text" id="dni" formControlName="dni" class="input dark:input-dark">
+            </div>
+            <div class="form-group">
+              <label for="phone" class="label dark:text-light">Número de Celular:</label>
+              <input type="text" id="phone" formControlName="phone" class="input dark:input-dark">
+            </div>
+          </div>
+          <div>
+            <label for="email" class="label dark:text-light">Correo Electrónico:</label>
+            <input type="email" id="email" formControlName="email" class="input dark:input-dark">
+          </div>
+          <div class="form-row">
+            <div class="form-group">
+              <label for="username" class="label dark:text-light">Nombre de Usuario:</label>
+              <input type="text" id="username" formControlName="username" class="input dark:input-dark">
+            </div>
+            <div class="form-group">
+              <label for="password" class="label dark:text-light">Contraseña:</label>
+              <input type="password" id="password" formControlName="password" class="input dark:input-dark">
+            </div>
+          </div>
+          <div>
+            <label for="role" class="label dark:text-light">Rol:</label>
+            <select id="role" formControlName="role" (change)="onRoleChange()" class="input dark:input-dark">
+              <option value="">Seleccione un rol</option>
+              <option value="landlord">Arrendador</option>
+              <option value="tenant">Inquilino</option>
+            </select>
+          </div>
+          <div formGroupName="preferences" *ngIf="registerForm.get('role')?.value === 'tenant'">
+            <h3 class="label dark:text-light">Preferencias de Alojamiento</h3>
+            <div>
+              <label for="price" class="label dark:text-light">Precio:</label>
+              <input type="text" id="price" formControlName="price" class="input dark:input-dark">
+            </div>
+            <div>
+              <label for="location" class="label dark:text-light">Ubicación:</label>
+              <input type="text" id="location" formControlName="location" class="input dark:input-dark">
+            </div>
+            <div>
+              <label for="type" class="label dark:text-light">Tipo:</label>
+              <input type="text" id="type" formControlName="type" class="input dark:input-dark">
+            </div>
+          </div>
+          <div class="button-container">
+            <button type="submit" class="button dark:button-dark">Registrarse</button>
+          </div>
+          <div *ngIf="errorMessage" class="error-message">{{ errorMessage }}</div>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
