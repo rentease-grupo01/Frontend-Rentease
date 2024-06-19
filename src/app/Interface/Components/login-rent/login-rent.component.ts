@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { AuthUsuarioService } from '../../../Servicios/auth-usuario.service';
 
 @Component({
   selector: 'app-login-rent',
@@ -11,7 +12,7 @@ export class LoginRentComponent {
   loginForm: FormGroup;
   errorMessage: string = '';
 
-  constructor(private fb: FormBuilder, private router: Router) {
+  constructor(private fb: FormBuilder, private router: Router, private authService: AuthUsuarioService) {
     this.loginForm = this.fb.group({
       username: ['', Validators.required],
       password: ['', Validators.required],
@@ -22,22 +23,35 @@ export class LoginRentComponent {
   onSubmit() {
     if (this.loginForm.valid) {
       const { username, password } = this.loginForm.value;
-      if (username === 'user' && password === 'password') {
-        alert('Login successful! Redirecting to home page...');
-        this.router.navigate(['/home']);
-      } else if (username !== 'user') {
-        this.errorMessage = 'The username is not recognized.';
-      } else {
-        this.errorMessage = 'The password is incorrect.';
-      }
+      console.log('Form Values:', { username, password });
+
+      this.authService.login(username, password).subscribe(
+        response => {
+          console.log('Login Response:', response);
+          if (response.success) {
+            if (response.role === 'ARRENDADOR') {
+              this.router.navigate(['/arrendador-dash']);
+            } else if (response.role === 'INQUILINO') {
+              this.router.navigate(['/inquilino-dash']);
+            } else {
+              this.router.navigate(['/home']);
+            }
+          } else {
+            this.errorMessage = response.message;
+          }
+        },
+        error => {
+          console.error('Login Error:', error);
+          this.errorMessage = 'Error 404, Host en mantenimiento';
+        }
+      );
     } else {
-      this.errorMessage = 'Please fill out both fields.';
+      this.errorMessage = 'Por favor, complete todos los campos';
     }
   }
 
   onForgotPassword() {
-    alert('Redirecting to the forgot password page...');
+    alert('Redirigiendo a la página de recuperación de contraseña...');
     this.router.navigate(['/forgot-password']);
   }
-
 }
