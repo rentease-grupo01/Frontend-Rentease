@@ -1,0 +1,18 @@
+<section class="bg-light dark:bg-dark">
+    <div class="container">
+      <div *ngIf="accommodations.length > 0; else noAccommodations">
+        <div *ngFor="let accommodation of accommodations" class="card dark:border-dark">
+          <div class="card-content">
+            <h2 class="title dark:text-light">{{ accommodation.name }}</h2>
+            <p class="subtitle">{{ accommodation.address }}</p>
+            <p>{{ accommodation.description }}</p>
+            <a [routerLink]="'/edit/' + accommodation.id" class="link dark:text-primary">Edit</a>
+          </div>
+        </div>
+      </div>
+      <ng-template #noAccommodations>
+        <p class="text dark:text-muted">No tienes alojamientos listados actualmente. <a routerLink="/new-accommodation" class="link dark:text-primary">Add Accommodation</a></p>
+      </ng-template>
+    </div>
+  </section>
+  
