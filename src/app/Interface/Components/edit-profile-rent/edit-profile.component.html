@@ -1,0 +1,27 @@
+<section class="bg-light dark:bg-dark">
+    <div class="container">
+      <div class="form-container dark:border-dark">
+        <div class="form-content">
+          <h1 class="title">Editar Perfil</h1>
+          <form class="form" (ngSubmit)="saveProfile()">
+            <div>
+              <label for="email" class="label dark:text-light">Correo Electrónico:</label>
+              <input type="email" id="email" name="email" class="input dark:input-dark" [(ngModel)]="user.email" required>
+              <div *ngIf="formSubmitted && form.controls.email.invalid" class="error-message">Por favor ingresa un correo electrónico válido.</div>
+            </div>
+            <div>
+              <label for="phone" class="label dark:text-light">Número de Teléfono:</label>
+              <input type="tel" id="phone" name="phone" class="input dark:input-dark" [(ngModel)]="user.phone" pattern="[0-9]{10}" required>
+              <div *ngIf="formSubmitted && form.controls.phone.invalid" class="error-message">Por favor ingresa un número de teléfono válido (10 dígitos numéricos).</div>
+            </div>
+            <button type="submit" class="button">Guardar Cambios</button>
+            <div *ngIf="showSuccessMessage" class="success-message">¡Perfil actualizado con éxito!</div>
+            <div *ngIf="showNoChangesMessage" class="warning-message">No se han detectado cambios en tu perfil.</div>
+            <div *ngIf="form.errors?.requiredFields" class="warning-message">Los campos de correo electrónico y teléfono son obligatorios.</div>
+            <div *ngIf="showErrorMessage" class="error-message">Ha ocurrido un error al intentar actualizar tu perfil. Por favor intenta de nuevo más tarde.</div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+  
