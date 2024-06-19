@@ -1,1 +1,31 @@
-<p>login-rent works!</p>
+
+<section class="bg-light dark:bg-dark">
+  <div class="container">
+      <div class="form-container dark:border-dark">
+          <div class="form-content">
+              <h1 class="title">
+                  Iniciar Sesion
+              </h1>
+              <form class="form" id="loginForm">
+                  <div>
+                      <label for="username" class="label dark:text-light">Usuario:</label>
+                      <input type="text" name="username" id="username" class="input dark:input-dark" placeholder="example" required>
+                  </div>
+                  <div>
+                      <label for="password" class="label dark:text-light">Contraseña:</label>
+                      <input type="password" name="password" id="password" class="input dark:input-dark" placeholder="••••••••" required>
+                  </div>
+                  <div class="flex-container">
+                      <a href="#" id="forgotPassword" class="link dark:text-primary">Olvide mi contraseña?</a>
+                  </div>
+                  <button type="submit" class="button">Login</button>
+                  <p class="text dark:text-muted">
+                      Unete a nuestra familia aqui <a routerLink="/register-ret" id="signUp" class="link dark:text-primary">Registrarme</a>
+                  </p>
+                  <div id="errorMessage" class="error-message"></div>
+              </form>
+          </div>
+      </div>
+  </div>
+</section>
+
