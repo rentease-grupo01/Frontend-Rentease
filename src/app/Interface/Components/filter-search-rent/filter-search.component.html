@@ -1,0 +1,24 @@
+<div class="container">
+    <div class="filter-bar">
+      <input type="text" placeholder="Ubicación" [(ngModel)]="filters.location">
+      <input type="number" placeholder="Precio Mínimo" [(ngModel)]="filters.minPrice">
+      <input type="number" placeholder="Precio Máximo" [(ngModel)]="filters.maxPrice">
+      <select [(ngModel)]="filters.propertyType">
+        <option value="">Todos</option>
+        <option value="casa">Casa</option>
+        <option value="departamento">Departamento</option>
+        <option value="habitacion">Habitación</option>
+      </select>
+      <button (click)="applyFilters()">Aplicar Filtros</button>
+    </div>
+    
+    <div class="property-list">
+      <div *ngFor="let property of filteredProperties" class="property-item">
+        <span>{{ property.location }} - {{ property.price }} - {{ property.type }}</span>
+      </div>
+      <div *ngIf="filteredProperties.length === 0" class="no-results">
+        No se encontraron resultados
+      </div>
+    </div>
+  </div>
+  
