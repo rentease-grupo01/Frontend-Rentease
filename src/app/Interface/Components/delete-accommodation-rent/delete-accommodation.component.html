@@ -1,0 +1,16 @@
+<div class="container">
+  <div class="accommodation-list">
+    <div class="accommodation-item" *ngFor="let accommodation of accommodations">
+      <span class="accommodation-title">{{ accommodation.title }}</span>
+      <button class="delete-button" (click)="confirmDelete(accommodation.id)">Eliminar</button>
+    </div>
+  </div>
+
+  <div *ngIf="showConfirmation" class="confirmation-dialog">
+    <p>¿Estás seguro de que deseas eliminar este alojamiento?</p>
+    <div class="dialog-buttons">
+      <button class="delete-button" (click)="deleteAccommodation()">Sí</button>
+      <button class="cancel-button" (click)="cancelDelete()">No</button>
+    </div>
+  </div>
+</div>
