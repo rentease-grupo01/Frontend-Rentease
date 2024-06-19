@@ -1,0 +1,37 @@
+<section class="bg-light dark:bg-dark">
+  <div class="container">
+    <div class="form-container dark:border-dark">
+      <div class="form-content">
+        <h1 class="title">Editar Alojamiento</h1>
+        <form class="form" id="editAccommodationForm" (ngSubmit)="onSubmit()">
+          <div>
+            <label for="title" class="label dark:text-light">Título:</label>
+            <input type="text" name="title" id="title" class="input dark:input-dark" [(ngModel)]="accommodation.title" required>
+          </div>
+          <div>
+            <label for="description" class="label dark:text-light">Descripción:</label>
+            <textarea name="description" id="description" class="input dark:input-dark" [(ngModel)]="accommodation.description" required></textarea>
+          </div>
+          <div>
+            <label for="price" class="label dark:text-light">Precio:</label>
+            <input type="text" name="price" id="price" class="input dark:input-dark" [(ngModel)]="accommodation.price" required>
+          </div>
+          <div>
+            <label for="contact" class="label dark:text-light">Número de Contacto:</label>
+            <input type="text" name="contact" id="contact" class="input dark:input-dark" [(ngModel)]="accommodation.contact" required>
+          </div>
+          <div>
+            <label for="photos" class="label dark:text-light">Fotos:</label>
+            <input type="file" name="photos" id="photos" class="input dark:input-dark" (change)="onFileChange($event)">
+          </div>
+          <div>
+            <label for="video" class="label dark:text-light">Video:</label>
+            <input type="file" name="video" id="video" class="input dark:input-dark" (change)="onFileChange($event)">
+          </div>
+          <button type="submit" class="button">Guardar Cambios</button>
+          <div id="errorMessage" class="error-message">{{ errorMessage }}</div>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
