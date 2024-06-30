@@ -19,6 +19,8 @@ import { MatInputModule } from '@angular/material/input';
 import { MatButtonModule } from '@angular/material/button';
 import { MatTableModule } from '@angular/material/table';
 import { MatCardModule } from '@angular/material/card';
+import { PaymentRemindersComponent } from './Interface/Components/recordatorio-pagos/recordatorio-pagos.component';
+import { PaymentHistoryComponent } from './Interface/Components/payment-history/payment-history.component';
 
 
 @NgModule({
@@ -31,7 +33,9 @@ import { MatCardModule } from '@angular/material/card';
     RegisterRetComponent,
     ArrendadorDashComponent,
     InquilinoDashComponent,
-    CreateComunityComponent
+    CreateComunityComponent,
+    PaymentRemindersComponent,
+    PaymentHistoryComponent
   ],
   imports: [
     BrowserModule,

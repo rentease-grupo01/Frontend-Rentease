@@ -1,0 +1,14 @@
+<!-- payment-reminders.component.html -->
+<div *ngIf="paymentReminders.length > 0">
+    <h2>Recordatorios de Pagos Pendientes</h2>
+    <ul>
+      <li *ngFor="let reminder of paymentReminders">
+        {{ reminder.message }} - {{ reminder.dueDate }}
+      </li>
+    </ul>
+  </div>
+  <div *ngIf="paymentReminders.length === 0">
+    <p>No hay recordatorios de pagos pendientes.</p>
+  </div>
+  
+  
