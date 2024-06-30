@@ -1,16 +1,16 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { RecordatorioPagosComponent } from './recordatorio-pagos.component';
+import { PaymentRemindersComponent} from './recordatorio-pagos.component';
 
 describe('RecordatorioPagosComponent', () => {
-  let component: RecordatorioPagosComponent;
-  let fixture: ComponentFixture<RecordatorioPagosComponent>;
+  let component: PaymentRemindersComponent;
+  let fixture: ComponentFixture<PaymentRemindersComponent>;
 
   beforeEach(() => {
     TestBed.configureTestingModule({
-      declarations: [RecordatorioPagosComponent]
+      declarations: [PaymentRemindersComponent]
     });
-    fixture = TestBed.createComponent(RecordatorioPagosComponent);
+    fixture = TestBed.createComponent(PaymentRemindersComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

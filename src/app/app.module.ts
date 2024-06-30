@@ -34,8 +34,8 @@ import { PaymentHistoryComponent } from './Interface/Components/payment-history/
     ArrendadorDashComponent,
     InquilinoDashComponent,
     CreateComunityComponent,
-    PaymentRemindersComponent,
-    PaymentHistoryComponent
+    PaymentHistoryComponent,
+    PaymentRemindersComponent
   ],
   imports: [
     BrowserModule,

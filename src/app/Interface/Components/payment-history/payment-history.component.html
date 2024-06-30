@@ -1,1 +1,40 @@
-<p>payment-history works!</p>
+<div class="mat-elevation-z8">
+    <table mat-table [dataSource]="dataSource" class="mat-elevation-z8" matSort>
+  
+      <!-- Payment ID Column -->
+      <ng-container matColumnDef="paymentId">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> ID Pago </th>
+        <td mat-cell *matCellDef="let element"> {{element.paymentId}} </td>
+      </ng-container>
+  
+      <!-- Metodo de Pago Column -->
+      <ng-container matColumnDef="metodoDePago">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> Método de Pago </th>
+        <td mat-cell *matCellDef="let element"> {{element.metodoDePago}} </td>
+      </ng-container>
+  
+      <!-- Fecha Column -->
+      <ng-container matColumnDef="fecha">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> Fecha </th>
+        <td mat-cell *matCellDef="let element"> {{element.fecha | date}} </td>
+      </ng-container>
+  
+      <!-- User ID Column -->
+      <ng-container matColumnDef="userId">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> ID Usuario </th>
+        <td mat-cell *matCellDef="let element"> {{element.userId}} </td>
+      </ng-container>
+  
+      <!-- Username Column -->
+      <ng-container matColumnDef="username">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> Usuario </th>
+        <td mat-cell *matCellDef="let element"> {{element.username}} </td>
+      </ng-container>
+  
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+    </table>
+  
+    <mat-paginator [pageSizeOptions]="[5, 10, 25, 100]" showFirstLastButtons></mat-paginator>
+  </div>
+  
